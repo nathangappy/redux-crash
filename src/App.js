@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Redux Setup
+import { Provider } from 'react-redux'
+import store from './store/store'
+
+import Posts from './components/Posts'
+import PostForm from './components/PostForm'
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <h1>React Post App</h1>
+          <PostForm />
+          <hr />
+          <Posts />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
